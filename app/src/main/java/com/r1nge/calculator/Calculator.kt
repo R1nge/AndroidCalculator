@@ -73,7 +73,7 @@ fun Calculator(
                     .aspectRatio(1f)
                     .weight(1f),
                     onClick = {
-                        onAction(CalculatorAction.Operation(CalculatorOperation.Divide))
+                        onAction(CalculatorAction.CalculatorOperation.Divide)
                     }
                 )
             }
@@ -112,7 +112,7 @@ fun Calculator(
                     .aspectRatio(1f)
                     .weight(1f),
                     onClick = {
-                        onAction(CalculatorAction.Operation(CalculatorOperation.Multiply))
+                        onAction(CalculatorAction.CalculatorOperation.Multiply)
                     }
                 )
             }
@@ -151,7 +151,7 @@ fun Calculator(
                     .aspectRatio(1f)
                     .weight(1f),
                     onClick = {
-                        onAction(CalculatorAction.Operation(CalculatorOperation.Subtract))
+                        onAction(CalculatorAction.CalculatorOperation.Subtract)
                     }
                 )
             }
@@ -189,7 +189,7 @@ fun Calculator(
                     .aspectRatio(1f)
                     .weight(1f),
                     onClick = {
-                        onAction(CalculatorAction.Operation(CalculatorOperation.Add))
+                        onAction(CalculatorAction.CalculatorOperation.Add)
                     }
                 )
             }

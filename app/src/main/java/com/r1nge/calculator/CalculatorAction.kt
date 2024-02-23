@@ -6,7 +6,11 @@ sealed class CalculatorAction {
     object Delete: CalculatorAction()
     object Decimal: CalculatorAction()
     object Calculate: CalculatorAction()
-    data class Operation(val operation: CalculatorOperation): CalculatorAction()
-    //TODO: refactor/simplify
+    sealed class CalculatorOperation(val symbol: String) : CalculatorAction(){
+        object Add : CalculatorOperation("+")
+        object Subtract : CalculatorOperation("-")
+        object Divide : CalculatorOperation("/")
+        object Multiply : CalculatorOperation("*")
+    }
     //TODO: add support for multiple numbers operation
 }
