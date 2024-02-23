@@ -30,7 +30,7 @@ class CalculatorViewModel : ViewModel() {
             return
         }
 
-        if (state.number2.length >= MAX_NUM_LENGTH){
+        if (state.number2.length >= MAX_NUM_LENGTH) {
             return
         }
 
@@ -64,8 +64,8 @@ class CalculatorViewModel : ViewModel() {
         val number1 = state.number1.toDoubleOrNull()
         val number2 = state.number2.toDoubleOrNull()
 
-        if (number1 != null && number2 != null){
-            val result = when(state.operation){
+        if (number1 != null && number2 != null) {
+            val result = when (state.operation) {
                 is CalculatorOperation.Add -> number1 + number2
                 is CalculatorOperation.Subtract -> number1 - number2
                 is CalculatorOperation.Multiply -> number1 * number2
@@ -73,11 +73,21 @@ class CalculatorViewModel : ViewModel() {
                 null -> return
             }
 
-            state = state.copy(
-                number1 = result.toString().take(15),
-                number2 = "",
-                operation = null
-            )
+            val afterDotAsString = result.toString().split(".")[1]
+            val afterDotAsDouble = "0.$afterDotAsString".toDouble()
+            if (afterDotAsDouble == 0.toDouble()) {
+                state = state.copy(
+                    number1 = result.toInt().toString().take(15),
+                    number2 = "",
+                    operation = null
+                )
+            } else {
+                state = state.copy(
+                    number1 = result.toString().take(15),
+                    number2 = "",
+                    operation = null
+                )
+            }
         }
     }
 
