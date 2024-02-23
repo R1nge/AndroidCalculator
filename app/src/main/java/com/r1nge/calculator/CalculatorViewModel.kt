@@ -77,13 +77,13 @@ class CalculatorViewModel : ViewModel() {
             val afterDotAsDouble = "0.$afterDotAsString".toDouble()
             if (afterDotAsDouble == 0.toDouble()) {
                 state = state.copy(
-                    number1 = result.toInt().toString().take(15),
+                    number1 = result.toInt().toString().take(MAX_NUM_LENGTH),
                     number2 = "",
                     operation = null
                 )
             } else {
                 state = state.copy(
-                    number1 = result.toString().take(15),
+                    number1 = result.toString().take(MAX_NUM_LENGTH),
                     number2 = "",
                     operation = null
                 )
@@ -100,6 +100,6 @@ class CalculatorViewModel : ViewModel() {
     }
 
     companion object {
-        private const val MAX_NUM_LENGTH = 8
+        private const val MAX_NUM_LENGTH = 20
     }
 }
